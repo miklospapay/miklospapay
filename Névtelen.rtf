@@ -1,0 +1,185 @@
+{\rtf1\ansi\ansicpg1250\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="hu">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>Szem\'e9lyi Edz\uc0\u337  \'e9s Coach</title>\
+    <style>\
+        body \{\
+            font-family: Arial, sans-serif;\
+            background-color: #f7f7f7;\
+            color: #333;\
+            margin: 0;\
+            padding: 0;\
+        \}\
+        header \{\
+            background-color: #aed6f1;\
+            color: white;\
+            text-align: center;\
+            padding: 1em 0;\
+        \}\
+        nav \{\
+            display: flex;\
+            justify-content: center;\
+            background-color: #5dade2;\
+        \}\
+        nav a \{\
+            color: white;\
+            padding: 1em;\
+            text-decoration: none;\
+            margin: 0 0.5em;\
+        \}\
+        nav a:hover \{\
+            background-color: #3498db;\
+        \}\
+        .container \{\
+            padding: 2em;\
+            max-width: 800px;\
+            margin: auto;\
+        \}\
+        footer \{\
+            text-align: center;\
+            padding: 1em 0;\
+            background-color: #aed6f1;\
+            color: white;\
+            position: fixed;\
+            width: 100%;\
+            bottom: 0;\
+        \}\
+        .lang-switch \{\
+            text-align: right;\
+            padding: 0.5em;\
+        \}\
+        .lang-switch a \{\
+            color: #333;\
+            text-decoration: none;\
+            margin: 0 0.5em;\
+        \}\
+        .lang-switch a:hover \{\
+            text-decoration: underline;\
+        \}\
+        .payment-container \{\
+            text-align: center;\
+            padding: 2em 0;\
+        \}\
+        .payment-button \{\
+            background-color: #3498db;\
+            color: white;\
+            border: none;\
+            padding: 1em 2em;\
+            font-size: 1em;\
+            cursor: pointer;\
+            margin-top: 1em;\
+        \}\
+        .payment-button:hover \{\
+            background-color: #2980b9;\
+        \}\
+    </style>\
+    <script src="https://js.stripe.com/v3/"></script>\
+    <script>\
+        function switchLang(lang) \{\
+            const elements = document.querySelectorAll('[data-lang]');\
+            elements.forEach(element => \{\
+                element.style.display = element.getAttribute('data-lang') === lang ? 'block' : 'none';\
+            \});\
+        \}\
+\
+        document.addEventListener("DOMContentLoaded", function () \{\
+            var stripe = Stripe('YOUR_PUBLIC_STRIPE_API_KEY');\
+            var checkoutButton = document.getElementById('checkout-button');\
+\
+            checkoutButton.addEventListener('click', function () \{\
+                stripe.redirectToCheckout(\{\
+                    lineItems: [\{price: 'PRICE_ID', quantity: 1\}],\
+                    mode: 'payment',\
+                    successUrl: 'https://yourdomain.com/success',\
+                    cancelUrl: 'https://yourdomain.com/cancel',\
+                \}).then(function (result) \{\
+                    if (result.error) \{\
+                        alert(result.error.message);\
+                    \}\
+                \});\
+            \});\
+        \});\
+    </script>\
+</head>\
+<body onload="switchLang('hu')">\
+\
+<header>\
+    <h1 data-lang="hu">Szem\'e9lyi Edz\uc0\u337  \'e9s Coach</h1>\
+    <h1 data-lang="en" style="display:none;">Personal Trainer and Coach</h1>\
+</header>\
+\
+<div class="lang-switch">\
+    <a href="#" onclick="switchLang('hu')">HU</a> | <a href="#" onclick="switchLang('en')">EN</a>\
+</div>\
+\
+<nav>\
+    <a href="#home" data-lang="hu">Kezd\uc0\u337 lap</a>\
+    <a href="#home" data-lang="en" style="display:none;">Home</a>\
+    <a href="#about" data-lang="hu">R\'f3lam</a>\
+    <a href="#about" data-lang="en" style="display:none;">About</a>\
+    <a href="#services" data-lang="hu">Szolg\'e1ltat\'e1sok</a>\
+    <a href="#services" data-lang="en" style="display:none;">Services</a>\
+    <a href="#contact" data-lang="hu">Kapcsolat</a>\
+    <a href="#contact" data-lang="en" style="display:none;">Contact</a>\
+</nav>\
+\
+<div class="container" id="home">\
+    <h2 data-lang="hu">Kezd\uc0\u337 lap</h2>\
+    <h2 data-lang="en" style="display:none;">Home</h2>\
+    <p data-lang="hu">\'dcdv\'f6z\'f6llek a szem\'e9lyi edz\'e9s \'e9s coaching vil\'e1g\'e1ban! C\'e9lom, hogy seg\'edtsek el\'e9rni a legjobb form\'e1dat, mind fizikailag, mind ment\'e1lisan.</p>\
+    <p data-lang="en" style="display:none;">Welcome to the world of personal training and coaching! My goal is to help you achieve your best form, both physically and mentally.</p>\
+</div>\
+\
+<div class="container" id="about">\
+    <h2 data-lang="hu">R\'f3lam</h2>\
+    <h2 data-lang="en" style="display:none;">About</h2>\
+    <p data-lang="hu">Szenved\'e9lyem a sport \'e9s a szem\'e9lyes fejl\uc0\u337 d\'e9s. T\'f6bb \'e9ves tapasztalattal rendelkezem az online szem\'e9lyi edz\'e9s \'e9s coaching ter\'fclet\'e9n, \'e9s elk\'f6telezett vagyok amellett, hogy \'fcgyfeleim el\'e9rj\'e9k c\'e9ljaikat.</p>\
+    <p data-lang="en" style="display:none;">My passion is sports and personal development. I have several years of experience in online personal training and coaching, and I am committed to helping my clients achieve their goals.</p>\
+</div>\
+\
+<div class="container" id="services">\
+    <h2 data-lang="hu">Szolg\'e1ltat\'e1sok</h2>\
+    <h2 data-lang="en" style="display:none;">Services</h2>\
+    <ul>\
+        <li data-lang="hu">Szem\'e9lyi edz\'e9s: Egy\'e9nre szabott edz\'e9stervek, online t\'e1mogat\'e1s.</li>\
+        <li data-lang="en" style="display:none;">Personal training: Customized workout plans, online support.</li>\
+        <li data-lang="hu">\'c9letm\'f3d coaching: Motiv\'e1ci\'f3, c\'e9lkit\uc0\u369 z\'e9s \'e9s \'f6nfejleszt\'e9s.</li>\
+        <li data-lang="en" style="display:none;">Lifestyle coaching: Motivation, goal setting, and self-development.</li>\
+        <li data-lang="hu">T\'e1pl\'e1lkoz\'e1si tan\'e1csad\'e1s: Eg\'e9szs\'e9ges \'e9tkez\'e9si szok\'e1sok kialak\'edt\'e1sa.</li>\
+        <li data-lang="en" style="display:none;">Nutritional advice: Developing healthy eating habits.</li>\
+    </ul>\
+</div>\
+\
+<div class="container" id="contact">\
+    <h2 data-lang="hu">Kapcsolat</h2>\
+    <h2 data-lang="en" style="display:none;">Contact</h2>\
+    <p data-lang="hu">Ha k\'e9rd\'e9sed van, vagy szeretn\'e9l egy\'fctt dolgozni velem, k\'e9rlek, vedd fel velem a kapcsolatot az al\'e1bbi el\'e9rhet\uc0\u337 s\'e9gek egyik\'e9n:</p>\
+    <p data-lang="en" style="display:none;">If you have any questions or would like to work with me, please contact me at one of the following:</p>\
+    <p>Email: info@szemelyiedzo.hu</p>\
+    <p>Telefon: +36 20 123 4567</p>\
+</div>\
+\
+<div class="container payment-container" id="payment">\
+    <h2 data-lang="hu">Fizet\'e9s</h2>\
+    <h2 data-lang="en" style="display:none;">Payment</h2>\
+    <button id="checkout-button" class="payment-button" data-lang="hu">Fizet\'e9s most</button>\
+    <button id="checkout-button" class="payment-button" data-lang="en" style="display:none;">Pay Now</button>\
+</div>\
+\
+<footer>\
+    <p data-lang="hu">&copy; 2024 Szem\'e9lyi Edz\uc0\u337  \'e9s Coach</p>\
+    <p data-lang="en" style="display:none;">&copy; 2024 Personal Trainer and Coach</p>\
+</footer>\
+\
+</body>\
+</html>\
+}
